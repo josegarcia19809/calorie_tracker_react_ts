@@ -22,5 +22,6 @@ export const activityReducer = (
         // Este código maneja la lógica para actualizar el state
         console.log("save-activity");
     }
+    return state;
 
 }
