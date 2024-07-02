@@ -9,6 +9,14 @@ function Form() {
         calories: 0
     });
 
+    function handleChange(e) {
+
+        setActivity({
+            ...activity,
+            [e.target.id]: e.target.value
+        })
+    }
+
     return (
         <form
             className="space-y-5 bg-white shadow p-10 rounded-lg"
@@ -19,6 +27,7 @@ function Form() {
                     className="border border-slate-300 p-2 rounded-lg w-full bg-white"
                     id="category"
                     value={activity.category}
+                    onChange={handleChange}
                 >
                     {categories.map(category => (
                         <option key={category.id} value={category.id}>
@@ -36,6 +45,7 @@ function Form() {
                     className="border border-slate-300 p-2 rounded-lg"
                     placeholder="Ej. Comida, Jugo de Naranja, Ensalada, Ejercicio"
                     value={activity.name}
+                    onChange={handleChange}
                 />
             </div>
 
@@ -47,6 +57,7 @@ function Form() {
                     className="border border-slate-300 p-2 rounded-lg"
                     placeholder="Ej. 300 o 500"
                     value={activity.calories}
+                    onChange={handleChange}
                 />
             </div>
             <input
