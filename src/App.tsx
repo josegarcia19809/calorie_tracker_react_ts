@@ -1,6 +1,7 @@
 import Form from "./components/Form.tsx";
 import {useReducer} from "react";
 import {activityReducer, initialState} from "./reducers/activity-reducer.ts";
+import ActivityList from "./components/ActivityList.tsx";
 
 export default function App() {
     const [state, dispatch] = useReducer(activityReducer, initialState)
@@ -16,13 +17,17 @@ export default function App() {
             </header>
 
             <section className="bg-lime-500 py-20 px-5">
-                {/*<p>{state.activities[0].name}</p>*/}
                 <div className="max-w-4xl mx-auto">
                     <Form
                         dispatch={dispatch}
                     />
                 </div>
+            </section>
 
+            <section className="p-10 mx-auto max-w-4xl">
+                <ActivityList
+                    activities={state.activities}
+                />
             </section>
         </>
     );
