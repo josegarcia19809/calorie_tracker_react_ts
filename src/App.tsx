@@ -1,10 +1,14 @@
 import Form from "./components/Form.tsx";
-import {useReducer} from "react";
+import {useEffect, useReducer} from "react";
 import {activityReducer, initialState} from "./reducers/activity-reducer.ts";
 import ActivityList from "./components/ActivityList.tsx";
 
 export default function App() {
     const [state, dispatch] = useReducer(activityReducer, initialState)
+
+    useEffect(() => {
+        localStorage.setItem("activities", JSON.stringify(state.activities))
+    }, [state.activities]);
 
     return (
         <>
